@@ -20,17 +20,25 @@ from typing import List
 
 class Solution:
 
-    def reverse_string_inplace(self, s: List) -> List:
-        s_len = len(s)
+    def reverse_string_inplace(self, s: List[str]) -> None:
+        n = len(s)
         l = 0
-        r = s_len - 1
+        r = n - 1
         while l < r:
             s[l], s[r] = s[r], s[l]
             l += 1
             r -= 1
 
+if __name__ == "__main__":
+    sol = Solution()
+    tests = [
+        (["h", "e", "l", "l", "o"], ["o", "l", "l", "e", "h"]),
+        (["H", "a", "n", "n", "a", "h"], ["h", "a", "n", "n", "a", "H"])
+    ]
 
-sol = Solution()
-test_string = list("hello")
-sol.reverse_string_inplace(test_string)
-print(f"{list('hello')} => {test_string}")
+    for i, (arg, expected) in enumerate(tests, 1):
+        sol.reverse_string_inplace(arg)
+        result = arg
+        print(f"Test {i}: reverse_string_inplace({arg}) => result={result}, expected={expected}")
+        assert result == expected, f"Test {i} failed! Expected={expected}, got={result}"
+    print("All tests passed!")

@@ -1,6 +1,6 @@
 """
 Given a 1-indexed array of integers num that is already sorted in non-decreasing order,
-find two numbers such taht they add up to a specific target number.
+find two numbers such that they add up to a specific target number.
 """
 
 from typing import List
@@ -24,6 +24,15 @@ class Solution:
 
 if __name__ == "__main__":
     sol = Solution()
-    print(f"[2, 7, 11, 15], 9          => {sol.twoSum2([2, 7, 11, 15], 9)}")
-    print(f"[1, 5, 10, 11, 15, 25], 21 => {sol.twoSum2([1, 5, 10, 11, 15, 25], 21)}")
-    print(f"[2, 3, 4], 6               => {sol.twoSum2([2, 3, 4], 6)}")
+    tests = [
+        ([2, 7, 11, 15], 9, [1, 2]),
+        ([1, 5, 10, 11, 15, 25], 21, [3, 4]),
+        ([2, 3, 4], 6, [1, 3])
+    ]
+
+    for i, (num, target, expected) in enumerate(tests, 1):
+        result = sol.twoSum2(num, target)
+        print(f"Test {i}: twoSum2({num}, {target}) => result={result}, expected={expected}")
+        assert result == expected, f"Test {i}: failed! Expected={expected}, got={result}"
+
+    print("All tests passed!")

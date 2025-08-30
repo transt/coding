@@ -21,7 +21,18 @@ class Solution:
         result.reverse()
         return result
 
+
 if __name__ == "__main__":
     sol = Solution()
-    print(f"[-4, -2, 0, 1, 4, 10] => {sol.sortedSquares([-4, -2, 0, 1, 4, 10])}")
-    print(f"[-7, -3, 2, 3, 11]    => {sol.sortedSquares([-7, -3, 2, 3, 11])}")
+    tests = [
+        ([-4, -2, 0, 1, 4, 10], [0, 1, 4, 16, 16, 100]),
+        ([-7, -3, 2, 3, 11], [4, 9, 9, 49, 121]),
+        ([-4, -1, 0, 3, 10], [0, 1, 9, 16, 100])
+    ]
+
+    for i, (arg, expected) in enumerate(tests, 1):
+        result = sol.sortedSquares(arg)
+        print(f"Test {i}: sortedSquares({arg}) => result={result}, expected={expected}")
+        assert result == expected, f"Test {i}: failed! Expected={expected}, got={result}"
+
+    print("All tests passed!")

@@ -26,6 +26,15 @@ class Solution:
 
 if __name__ == "__main__":
     sol = Solution()
-    print(f"sol.romanToInt('II')      => {sol.romanToInt('II')}")
-    print(f"sol.romanToInt('XXVII')   => {sol.romanToInt('XXVII')}")
-    print(f"sol.romanToInt('MCMXCIV') => {sol.romanToInt('MCMXCIV')}")
+    tests = [
+        ('II', 2),
+        ('XXVII', 27),
+        ('MCMXCIV', 1994)
+    ]
+
+    for i, (arg, expected) in enumerate(tests, 1):
+        result = sol.romanToInt(arg)
+        print(f"Test {i}: romanToInt({arg}) => result={result}, expected={expected}")
+        assert result == expected, f"Test {i}: failed! Expected={expected}, got={result}"
+
+    print("All tests passed!")
