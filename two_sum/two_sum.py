@@ -1,3 +1,13 @@
+"""
+Given an array of integers nums and an integer target, return indices of 
+the two numbers such that they add up to target.
+
+You may assume that each input would have exactly one solution, and 
+you may not use the same element twice.
+
+You can return the answer in any order.
+"""
+
 from typing import List
 
 
@@ -23,7 +33,7 @@ if __name__ == "__main__":
     ]
 
     for i, (nums, target, expected) in enumerate(tests, 1):
-        result = sol.twoSum(nums, target) # E: Assigning result of a function call, where the function has no return
+        result = sol.twoSum(nums, target)
         print(f"Test {i}: twoSum({nums}, {target}) => result={result}, expected={expected}")
         assert result == expected, f"Test {i} failed! Expected={expected}, got={result}"
     print("All tests passed!")
